@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1 >看图猜词</h1>
+<div id="question-display">
+    <img src="./WechatIMG1178.jpeg" alt="Question Image">
+    <p>我的问题：这个图是什么意思</p>
+  </div>
+
+  <div id="answer-form" style="display: none;">
+    <form>
+      <label for="guess">你的答案：</label>
+      <input type="text" id="guess" name="guess">
+      <button type="submit">提交</button>
+    </form>
+  </div>
+
+  <p id="result"></p>
+
+</body>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+  const question = document.querySelector("#question-display p").innerText;
+  const image = document.querySelector("#question-display img").src;
+  const answer = "目不转睛";
+
+  document.getElementById("question-display").innerHTML = `<img src="${image}" alt="Question Image"><p>${question}</p>`;
+
+  document.getElementById("answer-form").style.display = "block";
+
+  document.getElementById("answer-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const guess = document.getElementById("guess").value;
+
+    if (guess === answer) {
+      document.getElementById("result").innerHTML = `恭喜你，你猜对了！问题是：${question}，正确答案是：${answer}。`;
+
+      alert("回答正确！");
+
+      document.getElementById("answer-form").style.display = "none";
+    } else {
+
+      document.getElementById("result").innerHTML = `很遗憾，你猜错了。请继续努力猜。`;
+    }
+  });
+});
+
+</script>
+</html>
