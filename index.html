@@ -10,7 +10,7 @@
 <h1 >看图猜词</h1>
 <div id="question-display">
     <img src="./WechatIMG1178.jpeg" alt="Question Image">
-    <p>我的问题：这个图是什么意思</p>
+    <p>这个图是什么意思</p>
   </div>
 
   <div id="answer-form" style="display: none;">
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const question = document.querySelector("#question-display p").innerText;
   const image = document.querySelector("#question-display img").src;
-  const answer = "目不转睛";
+  const answer = "目不识丁";
 
   document.getElementById("question-display").innerHTML = `<img src="${image}" alt="Question Image"><p>${question}</p>`;
 
